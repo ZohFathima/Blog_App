@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  blog-application:
+    build: .
+    container_name: blog_application
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/blog_db
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: tiger
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: tiger
+      MYSQL_DATABASE: blog_db
+    volumes:
+      - mysql-data:/var/lib/mysql
+volumes:
+  mysql-data:
