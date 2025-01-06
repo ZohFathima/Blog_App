@@ -129,10 +129,5 @@ The database is stored in a Docker volume `mysql-data` to ensure data persistenc
 
 ---
 
-## License
-This project is open-source and available under the MIT License.
-
----
-
 Happy coding!
 
